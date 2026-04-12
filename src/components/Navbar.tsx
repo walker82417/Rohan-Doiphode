@@ -23,7 +23,7 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass py-3" : "py-5"}`}>
       <div className="container flex items-center justify-between">
         <a href="#" className="text-xl font-bold text-primary text-glow">
-          Rohan<span className="text-foreground">.</span>
+          Home
         </a>
 
         <div className="hidden md:flex items-center gap-8">
