@@ -4,24 +4,43 @@ const skillCategories = [
   {
     title: "Digital & Automation",
     skills: ["Industrial IoT (IIoT)", "PLC Programming", "SCADA Basics", "AI Predictive Maintenance", "MATLAB/Simulink"],
-    color: "primary",
+    color: "cyan",
   },
   {
     title: "Core Engineering",
     skills: ["Power Systems Analysis", "Switchgear & Protection", "Renewable Energy", "Reactive Power Mgmt", "Circuit Design", "T&D"],
-    color: "accent",
+    color: "emerald",
   },
   {
     title: "Tools & Safety",
     skills: ["HIRA", "MS Office", "AutoCAD", "VS Code", "GitHub"],
-    color: "primary",
+    color: "amber",
   },
   {
     title: "Soft Skills",
     skills: ["Problem-solving", "Agility & Adaptability", "Cross-Functional Collaboration"],
-    color: "accent",
+    color: "rose",
   },
 ];
+
+const colorMap: Record<string, { heading: string; tag: string }> = {
+  cyan: {
+    heading: "text-primary",
+    tag: "border-primary/25 text-primary bg-primary/5 hover:bg-primary/15",
+  },
+  emerald: {
+    heading: "text-emerald-400",
+    tag: "border-emerald-400/25 text-emerald-400 bg-emerald-400/5 hover:bg-emerald-400/15",
+  },
+  amber: {
+    heading: "text-amber-400",
+    tag: "border-amber-400/25 text-amber-400 bg-amber-400/5 hover:bg-amber-400/15",
+  },
+  rose: {
+    heading: "text-rose-400",
+    tag: "border-rose-400/25 text-rose-400 bg-rose-400/5 hover:bg-rose-400/15",
+  },
+};
 
 const languages = ["English", "Hindi", "Marathi"];
 
@@ -40,31 +59,30 @@ export default function SkillsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {skillCategories.map((cat, i) => (
-            <div
-              key={cat.title}
-              className={`glass rounded-xl p-6 hover:box-glow transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: `${200 + i * 100}ms` }}
-            >
-              <h3 className={`font-semibold font-mono text-sm mb-4 ${cat.color === "primary" ? "text-primary" : "text-accent"}`}>
-                {`// ${cat.title}`}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className={`px-3 py-1.5 text-xs rounded-full border transition-all duration-200 hover:scale-105 ${
-                      cat.color === "primary"
-                        ? "border-primary/30 text-primary bg-primary/5 hover:bg-primary/10"
-                        : "border-accent/30 text-accent bg-accent/5 hover:bg-accent/10"
-                    }`}
-                  >
-                    {skill}
-                  </span>
-                ))}
+          {skillCategories.map((cat, i) => {
+            const colors = colorMap[cat.color];
+            return (
+              <div
+                key={cat.title}
+                className={`glass rounded-xl p-6 hover:box-glow transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                style={{ transitionDelay: `${200 + i * 100}ms` }}
+              >
+                <h3 className={`font-semibold font-mono text-sm mb-4 ${colors.heading}`}>
+                  {`// ${cat.title}`}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className={`px-3 py-1.5 text-xs rounded-full border transition-all duration-200 hover:scale-105 ${colors.tag}`}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className={`mt-6 glass rounded-xl p-6 transition-all duration-700 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>

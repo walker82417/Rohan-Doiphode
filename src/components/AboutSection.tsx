@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { GraduationCap, Zap, Youtube } from "lucide-react";
+import { GraduationCap, Zap, Youtube, Briefcase } from "lucide-react";
 
 export default function AboutSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -24,19 +24,20 @@ export default function AboutSection() {
               My goal is to drive <span className="text-primary">sustainable energy solutions</span> and operational excellence through innovative engineering. From wireless EV charging to AI-driven industrial monitoring, I love tackling complex problems.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              I also run an <span className="text-accent">Alan Walker fan page on YouTube</span> —{" "}
+              I also run an <span className="text-accent">Alan Walker fan page on YouTube</span> called{" "}
               <a href="https://www.youtube.com/@walkersmusicworld" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                 Walkers Music World
               </a>{" "}
-              — with <span className="text-foreground font-medium">43K+ subscribers</span> and growing! I actively create and curate content, bringing the same passion for creativity to music as I do to engineering.
+              with <span className="text-foreground font-medium">43K+ subscribers</span> and growing! I actively create and curate content, bringing the same passion for creativity to music as I do to engineering.
             </p>
           </div>
 
           <div className={`space-y-4 transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
             {[
-              { icon: GraduationCap, title: "Education", desc: "B.E. Electrical Engineering — CGPA: 7.5/10", sub: "KIT's College of Engineering, 2022–2026" },
+              { icon: GraduationCap, title: "Education", desc: "B.E. Electrical Engineering | CGPA: 7.5/10", sub: "KIT's College of Engineering, 2022 to 2026" },
+              { icon: Briefcase, title: "Internship", desc: "Quality Engineer | 4 Months", sub: "ILJIN Electronics Pvt Ltd, India" },
               { icon: Zap, title: "Focus Areas", desc: "Power Systems • IoT • AI • Automation", sub: "Bridging traditional & modern engineering" },
-              { icon: Youtube, title: "Content Creator", desc: "Walkers Music World — 43K+ Subscribers", sub: "Alan Walker fan page • Actively updated" },
+              { icon: Youtube, title: "Content Creator", desc: "Walkers Music World | 43K+ Subscribers", sub: "Alan Walker fan page | Actively updated" },
             ].map((item, i) => (
               <div key={i} className="glass rounded-xl p-5 hover:box-glow transition-all duration-300 group">
                 <div className="flex items-start gap-4">
