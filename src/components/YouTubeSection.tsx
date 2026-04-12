@@ -23,56 +23,56 @@ export default function YouTubeSection() {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mb-10" />
         </div>
 
-        <div className={`glass rounded-xl p-8 md:p-10 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* Channel Logo & Info */}
-            <div className="flex flex-col items-center text-center md:items-start md:text-left">
-              <div className="relative w-28 h-28 mb-4">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-red-500 to-red-700 animate-pulse-glow opacity-40 blur-md" />
-                <img
-                  src={ytLogo}
-                  alt="Walkers Music World"
-                  className="relative w-full h-full rounded-full object-cover border-2 border-red-500/30"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-1">Walkers Music World</h3>
-              <p className="text-sm text-muted-foreground mb-1">Alan Walker Fan Page</p>
-              <p className="text-xs text-muted-foreground/70 mb-5">Curating Alan Walker content since day one. Actively updated with latest releases, edits, and community content.</p>
+        <div className={`glass rounded-xl p-6 md:p-10 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          {/* Channel Header */}
+          <div className="flex flex-col sm:flex-row items-center gap-5 mb-8">
+            <div className="relative w-20 h-20 shrink-0">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-red-500 to-red-700 animate-pulse-glow opacity-40 blur-md" />
+              <img
+                src={ytLogo}
+                alt="Walkers Music World"
+                className="relative w-full h-full rounded-full object-cover border-2 border-red-500/30"
+              />
+            </div>
+            <div className="text-center sm:text-left">
+              <h3 className="text-xl font-bold text-foreground">Walkers Music World</h3>
+              <p className="text-sm text-muted-foreground">Alan Walker Fan Page</p>
+              <p className="text-xs text-muted-foreground/70 mt-1 max-w-md">
+                Curating Alan Walker content since day one. Actively updated with latest releases, edits, and community content.
+              </p>
+            </div>
+          </div>
 
-              <a
-                href="https://www.youtube.com/@walkersmusicworld"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-2.5 bg-red-600 text-foreground font-semibold rounded-lg hover:bg-red-500 transition-all duration-300 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)]"
+          {/* Stats Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={`glass rounded-lg p-4 text-center transition-all duration-500 hover:scale-[1.03] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                style={{ transitionDelay: `${400 + i * 100}ms` }}
               >
-                <Youtube className="w-5 h-5" /> Visit Channel
-              </a>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="flex-1 w-full">
-              <div className="grid grid-cols-2 gap-4">
-                {stats.map((s, i) => (
-                  <div
-                    key={s.label}
-                    className={`glass rounded-xl p-5 text-center transition-all duration-500 hover:scale-105 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
-                    style={{ transitionDelay: `${400 + i * 100}ms` }}
-                  >
-                    <s.icon className={`w-6 h-6 ${s.color} mx-auto mb-2`} />
-                    <p className="text-2xl font-bold text-foreground">{s.value}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
-                  </div>
-                ))}
+                <s.icon className={`w-5 h-5 ${s.color} mx-auto mb-2`} />
+                <p className="text-xl md:text-2xl font-bold text-foreground leading-tight">{s.value}</p>
+                <p className="text-[11px] text-muted-foreground mt-1">{s.label}</p>
               </div>
+            ))}
+          </div>
 
-              <div className="glass rounded-lg p-4 mt-4 text-center">
-                <p className="text-sm text-muted-foreground">
-                  A community of Walkers from around the globe, blending{" "}
-                  <span className="text-primary font-semibold">engineering creativity</span> with{" "}
-                  <span className="text-red-400 font-semibold">music passion</span>
-                </p>
-              </div>
-            </div>
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 glass rounded-lg p-4">
+            <p className="text-sm text-muted-foreground text-center sm:text-left">
+              A community of Walkers from around the globe, blending{" "}
+              <span className="text-primary font-semibold">engineering creativity</span> with{" "}
+              <span className="text-red-400 font-semibold">music passion</span>
+            </p>
+            <a
+              href="https://www.youtube.com/@walkersmusicworld"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 bg-red-600 text-foreground font-semibold rounded-lg hover:bg-red-500 transition-all duration-300 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] shrink-0 text-sm"
+            >
+              <Youtube className="w-4 h-4" /> Visit Channel
+            </a>
           </div>
         </div>
       </div>
