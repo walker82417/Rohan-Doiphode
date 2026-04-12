@@ -2,8 +2,8 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Award, Trophy } from "lucide-react";
 
 const achievements = [
-  { title: "1st Prize — Project Based Learning", date: "April 2025", icon: Trophy, highlight: true },
-  { title: "1st Runner-Up — Project Based Learning", date: "November 2024", icon: Trophy, highlight: false },
+  { title: "1st Prize, Project Based Learning", date: "April 2025", icon: Trophy, highlight: true },
+  { title: "1st Runner-Up, Project Based Learning", date: "November 2024", icon: Trophy, highlight: false },
   { title: "Recent Advances in Transmission Insulators", date: "NPTEL Certificate, Feb 2025", icon: Award, highlight: false },
   { title: "Power System Reliability & Performance Analysis", date: "Nov 2023", icon: Award, highlight: false },
   { title: "Introduction to AI Tool", date: "Be10x Certificate", icon: Award, highlight: false },
@@ -17,7 +17,7 @@ export default function AchievementsSection() {
       <div className="container" ref={ref}>
         <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            <span className="text-primary font-mono text-base block mb-2">04.</span>
+            <span className="text-primary font-mono text-base block mb-2">05.</span>
             Achievements & <span className="gradient-text">Certifications</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mb-10" />
