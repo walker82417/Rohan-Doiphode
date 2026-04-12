@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { GraduationCap, Zap, Music } from "lucide-react";
+import { GraduationCap, Zap, Youtube } from "lucide-react";
 
 export default function AboutSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -24,7 +24,11 @@ export default function AboutSection() {
               My goal is to drive <span className="text-primary">sustainable energy solutions</span> and operational excellence through innovative engineering. From wireless EV charging to AI-driven industrial monitoring, I love tackling complex problems.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Beyond engineering, I express creativity through <span className="text-accent">music production and remixing</span> — bringing the same precision and innovation to beats as I do to circuits.
+              I also run an <span className="text-accent">Alan Walker fan page on YouTube</span> —{" "}
+              <a href="https://www.youtube.com/@walkersmusicworld" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Walkers Music World
+              </a>{" "}
+              — with <span className="text-foreground font-medium">43K+ subscribers</span> and growing! I actively create and curate content, bringing the same passion for creativity to music as I do to engineering.
             </p>
           </div>
 
@@ -32,7 +36,7 @@ export default function AboutSection() {
             {[
               { icon: GraduationCap, title: "Education", desc: "B.E. Electrical Engineering — CGPA: 7.5/10", sub: "KIT's College of Engineering, 2022–2026" },
               { icon: Zap, title: "Focus Areas", desc: "Power Systems • IoT • AI • Automation", sub: "Bridging traditional & modern engineering" },
-              { icon: Music, title: "Beyond Engineering", desc: "Music Production & Remixing", sub: "Creative expression through sound" },
+              { icon: Youtube, title: "Content Creator", desc: "Walkers Music World — 43K+ Subscribers", sub: "Alan Walker fan page • Actively updated" },
             ].map((item, i) => (
               <div key={i} className="glass rounded-xl p-5 hover:box-glow transition-all duration-300 group">
                 <div className="flex items-start gap-4">
