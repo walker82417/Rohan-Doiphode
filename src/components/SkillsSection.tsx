@@ -67,8 +67,8 @@ export default function SkillsSection() {
                 className={`glass rounded-xl p-6 hover:box-glow transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                 style={{ transitionDelay: `${200 + i * 100}ms` }}
               >
-                <h3 className={`font-semibold font-mono text-sm mb-4 ${colors.heading}`}>
-                  {`// ${cat.title}`}
+                <h3 className={`font-semibold text-sm mb-4 ${colors.heading}`}>
+                  {cat.title}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {cat.skills.map((skill) => (
@@ -86,7 +86,7 @@ export default function SkillsSection() {
         </div>
 
         <div className={`mt-6 glass rounded-xl p-6 transition-all duration-700 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h3 className="font-semibold font-mono text-sm text-primary mb-4">{"// Languages"}</h3>
+          <h3 className="font-semibold text-sm text-primary mb-4">Languages</h3>
           <div className="flex gap-4">
             {languages.map((lang) => (
               <span key={lang} className="px-4 py-2 rounded-lg border border-border bg-secondary/50 text-sm text-foreground">
