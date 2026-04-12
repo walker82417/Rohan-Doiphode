@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Mail, MapPin, ChevronDown, Youtube, Linkedin } from "lucide-react";
-import profilePhoto from "@/assets/profile-placeholder.png";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
