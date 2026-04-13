@@ -4,6 +4,7 @@ import { Award, Trophy } from "lucide-react";
 const achievements = [
   { title: "1st Prize, Project Based Learning", date: "April 2025", icon: Trophy, highlight: true },
   { title: "1st Runner-Up, Project Based Learning", date: "November 2024", icon: Trophy, highlight: false },
+  { title: "2nd Runner-Up, Project Based Learning (2025-26)", date: "PLC Based Automatic Car Washing System", icon: Trophy, highlight: false },
   { title: "Recent Advances in Transmission Insulators", date: "NPTEL Certificate, Feb 2025", icon: Award, highlight: false },
   { title: "Power System Reliability & Performance Analysis", date: "Nov 2023", icon: Award, highlight: false },
   { title: "Introduction to AI Tool", date: "Be10x Certificate", icon: Award, highlight: false },
