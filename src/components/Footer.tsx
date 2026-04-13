@@ -1,4 +1,4 @@
-import { Youtube, Linkedin, Mail } from "lucide-react";
+import { Youtube, Linkedin, Mail, Github } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -13,7 +13,11 @@ export default function Footer() {
             className="p-2 rounded-lg text-muted-foreground hover:text-blue-400 hover:bg-muted/50 transition-all">
             <Linkedin className="w-5 h-5" />
           </a>
-          <a href="mailto:rohandoiphode1@gmail.com"
+          <a href="https://github.com/walker82417/" target="_blank" rel="noopener noreferrer"
+            className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all">
+            <Github className="w-5 h-5" />
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&to=rohandoiphode1@gmail.com" target="_blank" rel="noopener noreferrer"
             className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-muted/50 transition-all">
             <Mail className="w-5 h-5" />
           </a>
@@ -21,7 +25,7 @@ export default function Footer() {
         <p className="text-sm text-muted-foreground">
           Designed & Built by <span className="text-primary font-mono">Rohan Doiphode</span>
         </p>
-        <p className="text-xs text-muted-foreground/50 mt-1">© {new Date().getFullYear()} All rights reserved.</p>
+        <p className="text-xs text-muted-foreground/50 mt-1">&copy; {new Date().getFullYear()} All rights reserved.</p>
       </div>
     </footer>
   );

@@ -8,7 +8,9 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:rohandoiphode1@gmail.com?subject=Portfolio Contact from ${formState.name}&body=${formState.message}`;
+    const subject = encodeURIComponent(`Portfolio Contact from ${formState.name}`);
+    const body = encodeURIComponent(formState.message);
+    window.open(`https://mail.google.com/mail/?view=cm&to=rohandoiphode1@gmail.com&su=${subject}&body=${body}`, '_blank');
   };
 
   return (
@@ -29,11 +31,11 @@ export default function ContactSection() {
             </p>
             <div className="space-y-4">
               {[
-                { icon: Mail, label: "rohandoiphode1@gmail.com", href: "mailto:rohandoiphode1@gmail.com" },
+                { icon: Mail, label: "rohandoiphode1@gmail.com", href: "https://mail.google.com/mail/?view=cm&to=rohandoiphode1@gmail.com", external: true },
                 { icon: Phone, label: "+91-9370686485", href: "tel:+919370686485" },
                 { icon: MapPin, label: "Kolhapur, India", href: "#" },
               ].map((item) => (
-                <a key={item.label} href={item.href}
+                <a key={item.label} href={item.href} target={(item as any).external ? "_blank" : undefined} rel={(item as any).external ? "noopener noreferrer" : undefined}
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group">
                   <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
                     <item.icon className="w-4 h-4" />
