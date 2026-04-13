@@ -58,7 +58,7 @@ export default function SkillsSection() {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mb-10" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
           {skillCategories.map((cat, i) => {
             const colors = colorMap[cat.color];
             return (
@@ -87,7 +87,7 @@ export default function SkillsSection() {
 
         <div className={`mt-6 glass rounded-xl p-6 transition-all duration-700 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <h3 className="font-semibold text-sm text-primary mb-4">Languages</h3>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-3">
             {languages.map((lang) => (
               <span key={lang} className="px-4 py-2 rounded-lg border border-border bg-secondary/50 text-sm text-foreground">
                 {lang}

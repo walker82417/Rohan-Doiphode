@@ -34,6 +34,12 @@ const projects = [
     ongoing: true,
   },
   {
+    title: "PLC Based Automatic Car Washing System",
+    desc: "Automated car washing system using PLC programming for sequential control of washing stages. 2nd Runner-Up in Project Based Learning 2025-26.",
+    icon: Zap,
+    tags: ["PLC", "Automation", "Industry"],
+  },
+  {
     title: "Transformer Safety Device",
     desc: "Designed a protective device for transformers that detects overload conditions and prevents equipment damage.",
     icon: ShieldCheck,
@@ -55,7 +61,7 @@ export default function ProjectsSection() {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mb-10" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {projects.map((p, i) => (
             <div
               key={p.title}

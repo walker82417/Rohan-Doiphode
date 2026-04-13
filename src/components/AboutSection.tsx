@@ -123,7 +123,7 @@ export default function AboutSection() {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mb-10" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
           <div className={`transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
             <p className="text-muted-foreground leading-relaxed mb-6">
               I'm a Final Year <span className="text-foreground font-medium">Electrical Engineering</span> student at KIT's College of Engineering, Kolhapur, with a passion for blending traditional power systems with cutting-edge IoT and AI technologies.

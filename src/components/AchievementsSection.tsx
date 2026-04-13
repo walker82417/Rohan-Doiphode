@@ -4,6 +4,7 @@ import { Award, Trophy } from "lucide-react";
 const achievements = [
   { title: "1st Prize, Project Based Learning", date: "April 2025", icon: Trophy, highlight: true },
   { title: "1st Runner-Up, Project Based Learning", date: "November 2024", icon: Trophy, highlight: false },
+  { title: "2nd Runner-Up, Project Based Learning (2025-26)", date: "PLC Based Automatic Car Washing System", icon: Trophy, highlight: false },
   { title: "Recent Advances in Transmission Insulators", date: "NPTEL Certificate, Feb 2025", icon: Award, highlight: false },
   { title: "Power System Reliability & Performance Analysis", date: "Nov 2023", icon: Award, highlight: false },
   { title: "Introduction to AI Tool", date: "Be10x Certificate", icon: Award, highlight: false },
@@ -27,7 +28,7 @@ export default function AchievementsSection() {
           {achievements.map((a, i) => (
             <div
               key={a.title}
-              className={`glass rounded-xl p-5 flex items-center gap-4 group hover:box-glow transition-all duration-500 ${
+              className={`glass rounded-xl p-4 sm:p-5 flex items-start sm:items-center gap-3 sm:gap-4 group hover:box-glow transition-all duration-500 ${
                 a.highlight ? "border-primary/30" : ""
               } ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
               style={{ transitionDelay: `${200 + i * 100}ms` }}
