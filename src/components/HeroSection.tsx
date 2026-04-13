@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Mail, MapPin, ChevronDown, Youtube, Linkedin, Github } from "lucide-react";
+import { Mail, MapPin, ChevronDown, Youtube, Linkedin, Github, Download } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 export default function HeroSection() {
@@ -37,7 +37,7 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-4">
             <span className="flex items-center gap-1"><MapPin className="w-4 h-4 text-primary" /> Kolhapur, India</span>
-            <a href="mailto:rohandoiphode1@gmail.com" className="flex items-center gap-1 hover:text-primary transition-colors">
+            <a href="https://mail.google.com/mail/?view=cm&to=rohandoiphode1@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
               <Mail className="w-4 h-4 text-primary" /> rohandoiphode1@gmail.com
             </a>
           </div>
@@ -63,6 +63,9 @@ export default function HeroSection() {
           </a>
           <a href="#contact" className="px-6 py-3 border border-primary/30 text-primary rounded-lg hover:bg-primary/10 transition-all duration-300 text-center">
             Contact Me
+          </a>
+          <a href="/resume.pdf" download className="flex items-center justify-center gap-2 px-6 py-3 border border-accent/30 text-accent rounded-lg hover:bg-accent/10 transition-all duration-300 text-center">
+            <Download className="w-4 h-4" /> Resume
           </a>
         </div>
       </div>
