@@ -38,7 +38,7 @@ export default function YouTubeSection() {
               <h3 className="text-xl font-bold text-foreground">Walkers Music World</h3>
               <p className="text-sm text-muted-foreground">Alan Walker Fan Page</p>
               <p className="text-xs text-muted-foreground/70 mt-1 max-w-md">
-                Curating Alan Walker content since day one. Actively updated with latest releases, edits, and community content.
+                Curating Alan Walker content since 2020. Actively updated with latest releases, Community Tribute , edits, and community content.
               </p>
             </div>
           </div>
