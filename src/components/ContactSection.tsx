@@ -22,7 +22,7 @@ export default function ContactSection() {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mb-10" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl">
           <div className={`transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
             <p className="text-muted-foreground mb-8">
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of something innovative. and I’m currently open to work. If you’re hiring or have a role that matches my profile, please reach out via the form below or email me directly. Let’s talk!

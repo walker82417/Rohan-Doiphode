@@ -25,23 +25,23 @@ export default function HeroSection() {
         </div>
 
         <div className={`transition-all duration-700 delay-200 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4">
             <span className="gradient-text">Rohan</span>{" "}
             <span className="text-foreground">Doiphode</span>
           </h1>
         </div>
 
         <div className={`transition-all duration-700 delay-500 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-2 font-mono">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-2 font-mono">
             Electrical Engineer | IoT & AI Enthusiast | YouTuber
           </p>
-          <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mb-4 flex-wrap">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-4">
             <span className="flex items-center gap-1"><MapPin className="w-4 h-4 text-primary" /> Kolhapur, India</span>
             <a href="mailto:rohandoiphode1@gmail.com" className="flex items-center gap-1 hover:text-primary transition-colors">
               <Mail className="w-4 h-4 text-primary" /> rohandoiphode1@gmail.com
             </a>
           </div>
-          <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8">
             <a href="https://www.youtube.com/@walkersmusicworld" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border text-sm text-muted-foreground hover:text-red-400 hover:border-red-400/30 transition-all duration-200">
               <Youtube className="w-4 h-4" /> 43K Subscribers
@@ -57,11 +57,11 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className={`flex justify-center gap-4 transition-all duration-700 delay-700 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <a href="#projects" className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:shadow-[0_0_25px_hsl(var(--primary)/0.4)] transition-all duration-300">
+        <div className={`flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 transition-all duration-700 delay-700 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <a href="#projects" className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:shadow-[0_0_25px_hsl(var(--primary)/0.4)] transition-all duration-300 text-center">
             View Projects
           </a>
-          <a href="#contact" className="px-6 py-3 border border-primary/30 text-primary rounded-lg hover:bg-primary/10 transition-all duration-300">
+          <a href="#contact" className="px-6 py-3 border border-primary/30 text-primary rounded-lg hover:bg-primary/10 transition-all duration-300 text-center">
             Contact Me
           </a>
         </div>

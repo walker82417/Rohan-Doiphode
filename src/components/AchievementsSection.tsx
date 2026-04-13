@@ -28,7 +28,7 @@ export default function AchievementsSection() {
           {achievements.map((a, i) => (
             <div
               key={a.title}
-              className={`glass rounded-xl p-5 flex items-center gap-4 group hover:box-glow transition-all duration-500 ${
+              className={`glass rounded-xl p-4 sm:p-5 flex items-start sm:items-center gap-3 sm:gap-4 group hover:box-glow transition-all duration-500 ${
                 a.highlight ? "border-primary/30" : ""
               } ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
               style={{ transitionDelay: `${200 + i * 100}ms` }}
