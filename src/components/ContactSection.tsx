@@ -1,10 +1,11 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 
 export default function ContactSection() {
   const { ref, isVisible } = useScrollAnimation();
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
+  const [isVerified, setIsVerified] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,19 +31,47 @@ export default function ContactSection() {
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of something innovative. and I’m currently open to work. If you’re hiring or have a role that matches my profile, please reach out via the form below or email me directly. Let’s talk!
             </p>
             <div className="space-y-4">
-              {[
-                { icon: Mail, label: "rohandoiphode1@gmail.com", href: "https://mail.google.com/mail/?view=cm&to=rohandoiphode1@gmail.com", external: true },
-                { icon: Phone, label: "+91-9370686485", href: "tel:+919370686485" },
-                { icon: MapPin, label: "Kolhapur, India", href: "#" },
-              ].map((item) => (
-                <a key={item.label} href={item.href} target={(item as any).external ? "_blank" : undefined} rel={(item as any).external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group">
-                  <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-                    <item.icon className="w-4 h-4" />
+              <a href="https://mail.google.com/mail/?view=cm&to=rohandoiphode1@gmail.com" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                  <Mail className="w-4 h-4" />
+                </div>
+                rohandoiphode1@gmail.com
+              </a>
+
+              {/* Phone with verification */}
+              <div className="space-y-2">
+                {!isVerified ? (
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <label className="flex items-center gap-2 cursor-pointer select-none group" onClick={() => setIsVerified(true)}>
+                      <div className="w-5 h-5 rounded border-2 border-muted-foreground/40 group-hover:border-primary flex items-center justify-center transition-colors">
+                      </div>
+                      <span className="text-muted-foreground text-sm">Verify you're human to see number</span>
+                    </label>
                   </div>
-                  {item.label}
-                </a>
-              ))}
+                ) : (
+                  <a href="tel:+919370686485"
+                    className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group animate-fade-in">
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                      <ShieldCheck className="w-4 h-4" />
+                    </div>
+                    <span className="flex items-center gap-1.5">
+                      +91-9370686485
+                      <ShieldCheck className="w-3.5 h-3.5 text-green-500" />
+                    </span>
+                  </a>
+                )}
+              </div>
+
+              <a href="#" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                Kolhapur, India
+              </a>
             </div>
           </div>
 
