@@ -3,7 +3,7 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const galleryImages = [
-  { src: "/placeholder.svg", alt: "Project 1", caption: "Project Name 1" },
+  { src: "@/assets/aquaculture.heic", alt: "Project 1", caption: "Project Name 1" },
   { src: "/placeholder.svg", alt: "Project 2", caption: "Project Name 2" },
   { src: "/placeholder.svg", alt: "Project 3", caption: "Project Name 3" },
   { src: "/placeholder.svg", alt: "Project 4", caption: "Project Name 4" },
