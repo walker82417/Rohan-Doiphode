@@ -3,14 +3,14 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const galleryImages = [
-  { src: "@/assets/aquaculture.heic", alt: "Project 1", caption: "Project Name 1" },
-  { src: "/placeholder.svg", alt: "Project 2", caption: "Project Name 2" },
-  { src: "/placeholder.svg", alt: "Project 3", caption: "Project Name 3" },
-  { src: "/placeholder.svg", alt: "Project 4", caption: "Project Name 4" },
-  { src: "/placeholder.svg", alt: "Project 5", caption: "Project Name 5" },
-  { src: "/placeholder.svg", alt: "Project 6", caption: "Project Name 6" },
-  { src: "/placeholder.svg", alt: "Project 7", caption: "Project Name 7" },
-  { src: "/placeholder.svg", alt: "Project 8", caption: "Project Name 8" },
+  { src: "@/assets/aquaculture.heic", alt: "Project 1", caption: "Loading Soon...." },
+  { src: "/placeholder.svg", alt: "Project 2", caption: "Loading Soon...." },
+  { src: "/placeholder.svg", alt: "Project 3", caption: "Loading Soon...." },
+  { src: "/placeholder.svg", alt: "Project 4", caption: "Loading Soon...." },
+  { src: "/placeholder.svg", alt: "Project 5", caption: "Loading Soon...." },
+  { src: "/placeholder.svg", alt: "Project 6", caption: "Loading Soon...." },
+  { src: "/placeholder.svg", alt: "Project 7", caption: "Loading Soon...." },
+  { src: "/placeholder.svg", alt: "Project 8", caption: "Loading Soon...." },
 ];
 
 export default function GallerySection() {
