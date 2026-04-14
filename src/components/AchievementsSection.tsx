@@ -14,7 +14,7 @@ export default function AchievementsSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="achievements" className="py-24 circuit-dot">
+    <section id="achievements" className="py-16 lg:py-20 circuit-dot">
       <div className="container" ref={ref}>
         <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
