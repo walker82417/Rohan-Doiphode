@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Mail, MapPin, ChevronDown, Youtube, Linkedin, Github, Download } from "lucide-react";
+import { Mail, MapPin, ChevronDown, Youtube, Linkedin, Github, Download, Instagram } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 export default function HeroSection() {
@@ -53,6 +53,10 @@ export default function HeroSection() {
             <a href="https://github.com/walker82417/" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all duration-200">
               <Github className="w-4 h-4" /> GitHub
+            </a>
+            <a href="https://www.instagram.com/its_rohan_82417/" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border text-sm text-muted-foreground hover:text-pink-400 hover:border-pink-400/30 transition-all duration-200">
+              <Instagram className="w-4 h-4" /> Instagram
             </a>
           </div>
         </div>
