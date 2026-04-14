@@ -1,10 +1,11 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 
 export default function ContactSection() {
   const { ref, isVisible } = useScrollAnimation();
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
+  const [isVerified, setIsVerified] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
