@@ -1,4 +1,4 @@
-import { Youtube, Linkedin, Mail, Github } from "lucide-react";
+import { Youtube, Linkedin, Mail, Github, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -16,6 +16,10 @@ export default function Footer() {
           <a href="https://github.com/walker82417/" target="_blank" rel="noopener noreferrer"
             className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all">
             <Github className="w-5 h-5" />
+          </a>
+          <a href="https://www.instagram.com/its_rohan_82417/" target="_blank" rel="noopener noreferrer"
+            className="p-2 rounded-lg text-muted-foreground hover:text-pink-400 hover:bg-muted/50 transition-all">
+            <Instagram className="w-5 h-5" />
           </a>
           <a href="https://mail.google.com/mail/?view=cm&to=rohandoiphode1@gmail.com" target="_blank" rel="noopener noreferrer"
             className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-muted/50 transition-all">
