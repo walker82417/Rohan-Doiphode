@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Mail, MapPin, ChevronDown, Youtube, Linkedin, Github, Download } from "lucide-react";
+import { Mail, MapPin, ChevronDown, Youtube, Linkedin, Github, Download, Instagram } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 export default function HeroSection() {
