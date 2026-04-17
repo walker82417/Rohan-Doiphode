@@ -47,7 +47,7 @@ export default function Navbar() {
             <img src={profilePhoto} alt="Rohan" className="w-full h-full object-cover rounded-full" />
           </div>
           <span className={`text-xl font-bold text-primary text-glow transition-all duration-300 ${scrolled ? "text-base" : ""}`}>
-            {scrolled ? "" : "Home"}
+            {scrolled ? "" : "PORTFOLIO"}
           </span>
         </button>
 
