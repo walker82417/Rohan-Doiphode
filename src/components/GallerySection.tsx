@@ -42,7 +42,7 @@ export default function GallerySection() {
               className={`group relative aspect-square rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <img src={img.src} alt={img.alt} className="w-full h-full object-contain bg-muted/30 transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
                 <span className="text-sm font-mono text-primary">{img.caption}</span>
               </div>
