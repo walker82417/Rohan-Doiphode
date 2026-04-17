@@ -8,7 +8,6 @@ import YouTubeSection from "@/components/YouTubeSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import BackgroundMusic from "@/components/BackgroundMusic";
 
 export default function Index() {
   return (
@@ -23,7 +22,6 @@ export default function Index() {
       <AchievementsSection />
       <ContactSection />
       <Footer />
-      <BackgroundMusic />
     </div>
   );
 }
