@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import aqua3 from "@/assets/aqua3.jpg";
 
 const galleryImages = [
-  { src: "@/assets/aquaculture.heic", alt: "Project 1", caption: "Loading Soon...." },
+  { src: aqua3, alt: "Aquaculture Project", caption: "Aquaculture Project" },
   { src: "/placeholder.svg", alt: "Project 2", caption: "Loading Soon...." },
   { src: "/placeholder.svg", alt: "Project 3", caption: "Loading Soon...." },
   { src: "/placeholder.svg", alt: "Project 4", caption: "Loading Soon...." },
