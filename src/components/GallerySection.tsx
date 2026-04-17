@@ -46,7 +46,7 @@ export default function GallerySection() {
         </div>
 
         {/* Masonry layout — preserves each image's natural aspect ratio (Google Photos style) */}
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 [column-fill:_balance]">
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4">
           {galleryImages.map((item, i) => {
             if (item.type === "image") {
               imageIdx += 1;
