@@ -52,7 +52,6 @@ export default function SkillsSection() {
       <div className="container" ref={ref}>
         <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            <span className="text-primary font-mono text-base block mb-2">02.</span>
             Skills & <span className="gradient-text">Expertise</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded mb-10" />
