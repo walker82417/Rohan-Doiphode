@@ -45,8 +45,8 @@ export default function GallerySection() {
           <p className="text-muted-foreground mt-2 max-w-xl mx-auto">A visual showcase of my projects, builds, and experiments.</p>
         </div>
 
-        {/* Masonry layout — preserves each image's natural aspect ratio (Google Photos style) */}
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4">
+        {/* Row-first gallery — keeps left-to-right ordering and preserves each image's natural ratio */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 items-start">
           {galleryImages.map((item, i) => {
             if (item.type === "image") {
               imageIdx += 1;
@@ -55,14 +55,14 @@ export default function GallerySection() {
                 <button
                   key={i}
                   onClick={() => openLightbox(idx)}
-                  className={`group relative mb-3 md:mb-4 block w-full break-inside-avoid rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                  className={`group relative block w-full self-start overflow-hidden rounded-xl border border-border/50 bg-muted/20 hover:border-primary/40 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
                   <img
                     src={item.src}
                     alt={item.alt}
                     loading="lazy"
-                    className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="block w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                   <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
                     <span className="text-sm font-mono text-primary">{item.caption}</span>
@@ -73,7 +73,7 @@ export default function GallerySection() {
             return (
               <div
                 key={i}
-                className={`mb-3 md:mb-4 break-inside-avoid rounded-xl border border-dashed border-border/60 bg-muted/20 aspect-square flex items-center justify-center transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                className={`min-h-[180px] rounded-xl border border-dashed border-border/60 bg-muted/20 flex items-center justify-center transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <span className="text-sm font-mono text-muted-foreground">{item.caption}</span>
