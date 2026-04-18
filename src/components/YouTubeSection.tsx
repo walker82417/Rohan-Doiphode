@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
 import { Youtube, Users, Eye, Upload, Play } from "lucide-react";
