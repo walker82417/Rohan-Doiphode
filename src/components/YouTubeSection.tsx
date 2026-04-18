@@ -1,13 +1,49 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useCountUp } from "@/hooks/useCountUp";
 import { Youtube, Users, Eye, Upload, Play } from "lucide-react";
 import ytLogo from "@/assets/yt-channel-logo.jpg";
 
-const stats = [
-  { icon: Users, value: "43.5K", label: "Subscribers", color: "text-red-400" },
-  { icon: Eye, value: "15M+", label: "Total Views", color: "text-blue-400" },
-  { icon: Upload, value: "1K+", label: "Uploads", color: "text-green-400" },
-  { icon: Play, value: "Daily", label: "Updates", color: "text-yellow-400" },
+type Stat = {
+  icon: typeof Users;
+  end: number;
+  decimals?: number;
+  suffix: string;
+  prefix?: string;
+  label: string;
+  color: string;
+  isText?: string;
+};
+
+const stats: Stat[] = [
+  { icon: Users, end: 43.5, decimals: 1, suffix: "K", label: "Subscribers", color: "text-red-400" },
+  { icon: Eye, end: 15, suffix: "M+", label: "Total Views", color: "text-blue-400" },
+  { icon: Upload, end: 1, suffix: "K+", label: "Uploads", color: "text-green-400" },
+  { icon: Play, end: 0, suffix: "", label: "Updates", color: "text-yellow-400", isText: "Daily" },
 ];
+
+function AnimatedStat({ stat, isVisible, delay }: { stat: Stat; isVisible: boolean; delay: number }) {
+  const value = useCountUp({
+    end: stat.end,
+    duration: 1800,
+    decimals: stat.decimals ?? 0,
+    enabled: isVisible && !stat.isText,
+  });
+
+  const display = stat.isText
+    ? stat.isText
+    : `${stat.prefix ?? ""}${stat.decimals ? value.toFixed(stat.decimals) : Math.round(value)}${stat.suffix}`;
+
+  return (
+    <div
+      className={`glass rounded-lg p-4 text-center transition-all duration-500 hover:scale-[1.03] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <stat.icon className={`w-5 h-5 ${stat.color} mx-auto mb-2`} />
+      <p className="text-xl md:text-2xl font-bold text-foreground leading-tight tabular-nums">{display}</p>
+      <p className="text-[11px] text-muted-foreground mt-1">{stat.label}</p>
+    </div>
+  );
+}
 
 export default function YouTubeSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -45,15 +81,7 @@ export default function YouTubeSection() {
           {/* Stats Row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
             {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className={`glass rounded-lg p-4 text-center transition-all duration-500 hover:scale-[1.03] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-                style={{ transitionDelay: `${400 + i * 100}ms` }}
-              >
-                <s.icon className={`w-5 h-5 ${s.color} mx-auto mb-2`} />
-                <p className="text-xl md:text-2xl font-bold text-foreground leading-tight">{s.value}</p>
-                <p className="text-[11px] text-muted-foreground mt-1">{s.label}</p>
-              </div>
+              <AnimatedStat key={s.label} stat={s} isVisible={isVisible} delay={400 + i * 100} />
             ))}
           </div>
 
