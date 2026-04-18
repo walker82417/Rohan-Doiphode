@@ -55,8 +55,8 @@ export default function GallerySection() {
                 <button
                   key={i}
                   onClick={() => openLightbox(idx)}
-                  className={`group relative block w-full self-start overflow-hidden rounded-xl border border-border/50 bg-muted/20 hover:border-primary/40 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                  style={{ transitionDelay: `${i * 80}ms` }}
+                  className={`group relative block w-full self-start overflow-hidden rounded-xl border border-border/50 bg-muted/20 hover:border-primary/40 transition-all ease-smooth duration-[900ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                  style={{ transitionDelay: `${i * 120}ms` }}
                 >
                   <img
                     src={item.src}
@@ -73,8 +73,8 @@ export default function GallerySection() {
             return (
               <div
                 key={i}
-                className={`min-h-[180px] rounded-xl border border-dashed border-border/60 bg-muted/20 flex items-center justify-center transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                style={{ transitionDelay: `${i * 80}ms` }}
+                className={`min-h-[180px] rounded-xl border border-dashed border-border/60 bg-muted/20 flex items-center justify-center transition-all ease-smooth duration-[900ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                style={{ transitionDelay: `${i * 120}ms` }}
               >
                 <span className="text-sm font-mono text-muted-foreground">{item.caption}</span>
               </div>

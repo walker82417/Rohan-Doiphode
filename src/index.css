@@ -71,6 +71,19 @@
     background-image: radial-gradient(circle, hsl(var(--primary) / 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
   }
+  .ease-smooth {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  /* Smoother default for any transition-all utility */
+  .transition-all {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }
 
 /* Scrollbar */
