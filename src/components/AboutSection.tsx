@@ -30,7 +30,7 @@ const cards: DetailCard[] = [
       city: "Kolhapur, Maharashtra, India",
       mapUrl: "https://maps.google.com/?q=KIT's+College+of+Engineering+Kolhapur",
       website: "https://www.kitcoek.in",
-      email: "principal@kitcoek.in",
+      email: "info@kitcoek.in",
       extras: [
         "Degree: Bachelor of Engineering (B.E.)",
         "Branch: Electrical Engineering",
