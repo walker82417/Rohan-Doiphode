@@ -8,6 +8,7 @@ const sections = [
   { label: "Gallery", id: "gallery" },
   { label: "YouTube", id: "youtube" },
   { label: "Achievements", id: "achievements" },
+  { label: "Academic", id: "academic-docs" },
   { label: "Contact", id: "contact" },
 ];
 
