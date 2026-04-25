@@ -15,18 +15,18 @@ const PASSWORD_HASH =
 
 const documents = [
   {
-    src: doc1,
-    title: "HSC Certificate",
-    board: "Maharashtra State Board, Pune Division",
-    grade: "68.33%",
-    date: "2022",
-  },
-  {
     src: doc2,
     title: "SSC Certificate",
     board: "Maharashtra State Board, Pune Division",
     grade: "79.60%",
     date: "2020",
+  },
+  {
+    src: doc1,
+    title: "HSC Certificate",
+    board: "Maharashtra State Board, Pune Division",
+    grade: "68.33%",
+    date: "2022",
   },
   {
     src: doc3,
@@ -36,18 +36,18 @@ const documents = [
     date: "2022–23",
   },
   {
-    src: doc4,
-    title: "Engineering — Third Year",
-    board: "KIT's College of Engineering, Kolhapur",
-    grade: "CGPA: 7.5",
-    date: "2024–25",
-  },
-  {
     src: doc5,
     title: "Engineering — Second Year",
     board: "KIT's College of Engineering, Kolhapur",
     grade: "CGPA: 7.82",
     date: "2023–24",
+  },
+  {
+    src: doc4,
+    title: "Engineering — Third Year",
+    board: "KIT's College of Engineering, Kolhapur",
+    grade: "CGPA: 7.5",
+    date: "2024–25",
   },
 ];
 
