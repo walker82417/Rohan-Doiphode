@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { Lock, GraduationCap, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,23 +28,87 @@ async function sha256(text: string): Promise<string> {
     .join("");
 }
 
+const MAX_ATTEMPTS = 5;
+const LOCKOUT_MS = 60_000;
+const STORAGE_KEY = "academic-docs-lockout";
+
+type LockoutState = { attempts: number; lockedUntil: number };
+
+function readLockout(): LockoutState {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { attempts: 0, lockedUntil: 0 };
+    return JSON.parse(raw);
+  } catch {
+    return { attempts: 0, lockedUntil: 0 };
+  }
+}
+
+function writeLockout(state: LockoutState) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch {
+    /* ignore */
+  }
+}
+
 export default function AcademicDocsSection() {
   const [unlocked, setUnlocked] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [attempts, setAttempts] = useState(0);
+  const [lockedUntil, setLockedUntil] = useState(0);
+  const [now, setNow] = useState(() => Date.now());
+
+  // Hydrate lockout state from localStorage on mount
+  useEffect(() => {
+    const s = readLockout();
+    setAttempts(s.attempts);
+    setLockedUntil(s.lockedUntil);
+  }, []);
+
+  // Tick every second while locked so the countdown updates
+  const isLocked = lockedUntil > now;
+  useEffect(() => {
+    if (!isLocked) return;
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, [isLocked]);
+
+  const secondsLeft = Math.max(0, Math.ceil((lockedUntil - now) / 1000));
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (isLocked) return;
     setLoading(true);
     setError("");
     try {
       const hash = await sha256(password);
       if (hash === PASSWORD_HASH) {
         setUnlocked(true);
+        setAttempts(0);
+        setLockedUntil(0);
+        writeLockout({ attempts: 0, lockedUntil: 0 });
       } else {
-        setError("Incorrect password. Access denied.");
+        const newAttempts = attempts + 1;
+        if (newAttempts >= MAX_ATTEMPTS) {
+          const until = Date.now() + LOCKOUT_MS;
+          setAttempts(newAttempts);
+          setLockedUntil(until);
+          setNow(Date.now());
+          writeLockout({ attempts: newAttempts, lockedUntil: until });
+          setError(`Too many failed attempts. Locked for ${LOCKOUT_MS / 1000}s.`);
+        } else {
+          setAttempts(newAttempts);
+          writeLockout({ attempts: newAttempts, lockedUntil: 0 });
+          setError(
+            `Incorrect password. ${MAX_ATTEMPTS - newAttempts} attempt${
+              MAX_ATTEMPTS - newAttempts === 1 ? "" : "s"
+            } remaining.`,
+          );
+        }
       }
     } catch {
       setError("Something went wrong. Please try again.");
@@ -53,6 +117,16 @@ export default function AcademicDocsSection() {
       setPassword("");
     }
   };
+
+  // Auto-reset attempts once the lockout window expires
+  useEffect(() => {
+    if (lockedUntil && !isLocked) {
+      setAttempts(0);
+      setLockedUntil(0);
+      writeLockout({ attempts: 0, lockedUntil: 0 });
+      setError("");
+    }
+  }, [isLocked, lockedUntil]);
 
   const showPrev = () => {
     if (activeIndex === null) return;
@@ -93,16 +167,31 @@ export default function AcademicDocsSection() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 type="password"
-                placeholder="Password"
+                placeholder={isLocked ? "Locked" : "Password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="off"
+                disabled={isLocked}
                 className="bg-background/50"
                 aria-label="Access password"
               />
-              {error && <p className="text-sm text-destructive">{error}</p>}
-              <Button type="submit" className="w-full" disabled={loading || !password}>
-                {loading ? "Verifying..." : "Unlock Documents"}
+              {isLocked ? (
+                <p className="text-sm text-destructive text-center">
+                  Too many failed attempts. Try again in {secondsLeft}s.
+                </p>
+              ) : (
+                error && <p className="text-sm text-destructive">{error}</p>
+              )}
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={loading || !password || isLocked}
+              >
+                {isLocked
+                  ? `Locked (${secondsLeft}s)`
+                  : loading
+                  ? "Verifying..."
+                  : "Unlock Documents"}
               </Button>
             </form>
           </div>
