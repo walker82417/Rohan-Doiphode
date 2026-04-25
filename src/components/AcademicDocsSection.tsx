@@ -129,7 +129,7 @@ export default function AcademicDocsSection() {
           setLockedUntil(until);
           setNow(Date.now());
           writeLockout({ attempts: newAttempts, lockedUntil: until });
-          setError(`Too many failed attempts. Locked for ${LOCKOUT_MS / 1000}s.`);
+          setError(`Too many failed attempts. Locked for ${LOCKOUT_MS / 60_000} minutes.`);
         } else {
           setAttempts(newAttempts);
           writeLockout({ attempts: newAttempts, lockedUntil: 0 });
