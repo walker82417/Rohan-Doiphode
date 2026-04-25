@@ -6,6 +6,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import GallerySection from "@/components/GallerySection";
 import YouTubeSection from "@/components/YouTubeSection";
 import AchievementsSection from "@/components/AchievementsSection";
+import AcademicDocsSection from "@/components/AcademicDocsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ export default function Index() {
       <GallerySection />
       <YouTubeSection />
       <AchievementsSection />
+      <AcademicDocsSection />
       <ContactSection />
       <Footer />
     </div>
