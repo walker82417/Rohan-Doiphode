@@ -167,16 +167,31 @@ export default function AcademicDocsSection() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 type="password"
-                placeholder="Password"
+                placeholder={isLocked ? "Locked" : "Password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="off"
+                disabled={isLocked}
                 className="bg-background/50"
                 aria-label="Access password"
               />
-              {error && <p className="text-sm text-destructive">{error}</p>}
-              <Button type="submit" className="w-full" disabled={loading || !password}>
-                {loading ? "Verifying..." : "Unlock Documents"}
+              {isLocked ? (
+                <p className="text-sm text-destructive text-center">
+                  Too many failed attempts. Try again in {secondsLeft}s.
+                </p>
+              ) : (
+                error && <p className="text-sm text-destructive">{error}</p>
+              )}
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={loading || !password || isLocked}
+              >
+                {isLocked
+                  ? `Locked (${secondsLeft}s)`
+                  : loading
+                  ? "Verifying..."
+                  : "Unlock Documents"}
               </Button>
             </form>
           </div>
