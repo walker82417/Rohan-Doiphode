@@ -249,9 +249,8 @@ export default function AcademicDocsSection() {
                   <h3 className="text-sm font-semibold text-foreground line-clamp-1">
                     {doc.title}
                   </h3>
+                  <p className="text-xs text-muted-foreground line-clamp-2">{doc.board}</p>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                    <span>{doc.page}</span>
-                    <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
                     <span className="text-primary/90">{doc.grade}</span>
                     <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
                     <span>{doc.date}</span>
