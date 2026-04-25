@@ -207,7 +207,9 @@ export default function AcademicDocsSection() {
               />
               {isLocked ? (
                 <p className="text-sm text-destructive text-center">
-                  Too many failed attempts. Try again in {secondsLeft}s.
+                  Too many failed attempts. Try again in{" "}
+                  {Math.floor(secondsLeft / 60)}:
+                  {String(secondsLeft % 60).padStart(2, "0")}.
                 </p>
               ) : (
                 error && <p className="text-sm text-destructive">{error}</p>
@@ -218,7 +220,9 @@ export default function AcademicDocsSection() {
                 disabled={loading || !password || isLocked}
               >
                 {isLocked
-                  ? `Locked (${secondsLeft}s)`
+                  ? `Locked (${Math.floor(secondsLeft / 60)}:${String(
+                      secondsLeft % 60,
+                    ).padStart(2, "0")})`
                   : loading
                   ? "Verifying..."
                   : "Unlock Documents"}
@@ -231,7 +235,7 @@ export default function AcademicDocsSection() {
               <button
                 key={i}
                 onClick={() => setActiveIndex(i)}
-                className="group relative overflow-hidden rounded-xl border border-primary/20 bg-card hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)]"
+                className="group relative overflow-hidden rounded-xl border border-primary/20 bg-card hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)] text-left flex flex-col"
               >
                 <div className="aspect-[3/4] overflow-hidden">
                   <img
@@ -241,8 +245,17 @@ export default function AcademicDocsSection() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-                  <span className="text-sm font-medium text-foreground">{doc.title}</span>
+                <div className="p-4 border-t border-border/50 space-y-1.5">
+                  <h3 className="text-sm font-semibold text-foreground line-clamp-1">
+                    {doc.title}
+                  </h3>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
+                    <span>{doc.page}</span>
+                    <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
+                    <span className="text-primary/90">{doc.grade}</span>
+                    <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
+                    <span>{doc.date}</span>
+                  </div>
                 </div>
               </button>
             ))}
