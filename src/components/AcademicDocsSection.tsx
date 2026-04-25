@@ -14,11 +14,41 @@ const PASSWORD_HASH =
   "861b41246ff331942acac27d3ec8d63c589b879208e3a18c916ec9583a246fd6";
 
 const documents = [
-  { src: doc1, title: "Academic Document 1" },
-  { src: doc2, title: "Academic Document 2" },
-  { src: doc3, title: "Academic Document 3" },
-  { src: doc4, title: "Academic Document 4" },
-  { src: doc5, title: "Academic Document 5" },
+  {
+    src: doc1,
+    title: "Secondary School Certificate",
+    page: "Page 1 of 1",
+    grade: "Grade: A",
+    date: "May 2018",
+  },
+  {
+    src: doc2,
+    title: "Higher Secondary Certificate",
+    page: "Page 1 of 1",
+    grade: "Grade: A+",
+    date: "May 2020",
+  },
+  {
+    src: doc3,
+    title: "Bachelor's Degree Certificate",
+    page: "Page 1 of 2",
+    grade: "CGPA: 8.7 / 10",
+    date: "Jun 2024",
+  },
+  {
+    src: doc4,
+    title: "Academic Transcript",
+    page: "Page 2 of 2",
+    grade: "Distinction",
+    date: "Jun 2024",
+  },
+  {
+    src: doc5,
+    title: "Course Completion Certificate",
+    page: "Page 1 of 1",
+    grade: "Score: 95%",
+    date: "Aug 2024",
+  },
 ];
 
 async function sha256(text: string): Promise<string> {
@@ -29,7 +59,7 @@ async function sha256(text: string): Promise<string> {
 }
 
 const MAX_ATTEMPTS = 5;
-const LOCKOUT_MS = 60_000;
+const LOCKOUT_MS = 5 * 60_000;
 const STORAGE_KEY = "academic-docs-lockout";
 
 type LockoutState = { attempts: number; lockedUntil: number };
