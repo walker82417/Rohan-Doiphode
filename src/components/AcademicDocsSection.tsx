@@ -16,38 +16,38 @@ const PASSWORD_HASH =
 const documents = [
   {
     src: doc1,
-    title: "Secondary School Certificate",
-    page: "Page 1 of 1",
-    grade: "Grade: A",
-    date: "May 2018",
+    title: "HSC Certificate",
+    board: "Maharashtra State Board, Pune Division",
+    grade: "68.33%",
+    date: "2022",
   },
   {
     src: doc2,
-    title: "Higher Secondary Certificate",
-    page: "Page 1 of 1",
-    grade: "Grade: A+",
-    date: "May 2020",
+    title: "SSC Certificate",
+    board: "Maharashtra State Board, Pune Division",
+    grade: "79.60%",
+    date: "2020",
   },
   {
     src: doc3,
-    title: "Bachelor's Degree Certificate",
-    page: "Page 1 of 2",
-    grade: "CGPA: 8.7 / 10",
-    date: "Jun 2024",
+    title: "Engineering — First Year",
+    board: "KIT's College of Engineering, Kolhapur",
+    grade: "CGPA: 6.9",
+    date: "2022–23",
   },
   {
     src: doc4,
-    title: "Academic Transcript",
-    page: "Page 2 of 2",
-    grade: "Distinction",
-    date: "Jun 2024",
+    title: "Engineering — Third Year",
+    board: "KIT's College of Engineering, Kolhapur",
+    grade: "CGPA: 7.5",
+    date: "2024–25",
   },
   {
     src: doc5,
-    title: "Course Completion Certificate",
-    page: "Page 1 of 1",
-    grade: "Score: 95%",
-    date: "Aug 2024",
+    title: "Engineering — Second Year",
+    board: "KIT's College of Engineering, Kolhapur",
+    grade: "CGPA: 7.82",
+    date: "2023–24",
   },
 ];
 
@@ -249,9 +249,8 @@ export default function AcademicDocsSection() {
                   <h3 className="text-sm font-semibold text-foreground line-clamp-1">
                     {doc.title}
                   </h3>
+                  <p className="text-xs text-muted-foreground line-clamp-2">{doc.board}</p>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                    <span>{doc.page}</span>
-                    <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
                     <span className="text-primary/90">{doc.grade}</span>
                     <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
                     <span>{doc.date}</span>
