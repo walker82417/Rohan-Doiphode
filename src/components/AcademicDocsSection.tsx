@@ -158,6 +158,37 @@ export default function AcademicDocsSection() {
     }
   }, [isLocked, lockedUntil]);
 
+  // ---- Lightbox zoom/pan state ----
+  const [zoom, setZoom] = useState(1);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const dragRef = useRef<{ x: number; y: number; ox: number; oy: number } | null>(null);
+  const [dragging, setDragging] = useState(false);
+
+  const resetView = () => {
+    setZoom(1);
+    setOffset({ x: 0, y: 0 });
+  };
+
+  // Reset zoom whenever the active doc changes or lightbox opens/closes
+  useEffect(() => {
+    resetView();
+  }, [activeIndex]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (activeIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveIndex(null);
+      else if (e.key === "ArrowLeft") showPrev();
+      else if (e.key === "ArrowRight") showNext();
+      else if (e.key === "+" || e.key === "=") setZoom((z) => Math.min(5, z + 0.25));
+      else if (e.key === "-") setZoom((z) => Math.max(1, z - 0.25));
+      else if (e.key === "0") resetView();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [activeIndex]);
+
   const showPrev = () => {
     if (activeIndex === null) return;
     setActiveIndex((activeIndex - 1 + documents.length) % documents.length);
@@ -165,6 +196,30 @@ export default function AcademicDocsSection() {
   const showNext = () => {
     if (activeIndex === null) return;
     setActiveIndex((activeIndex + 1) % documents.length);
+  };
+
+  const onWheel = (e: ReactWheelEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const delta = -e.deltaY * 0.0015;
+    setZoom((z) => Math.min(5, Math.max(1, z + delta)));
+  };
+
+  const onMouseDown = (e: ReactMouseEvent<HTMLImageElement>) => {
+    if (zoom <= 1) return;
+    e.preventDefault();
+    setDragging(true);
+    dragRef.current = { x: e.clientX, y: e.clientY, ox: offset.x, oy: offset.y };
+  };
+  const onMouseMove = (e: ReactMouseEvent<HTMLDivElement>) => {
+    if (!dragRef.current) return;
+    setOffset({
+      x: dragRef.current.ox + (e.clientX - dragRef.current.x),
+      y: dragRef.current.oy + (e.clientY - dragRef.current.y),
+    });
+  };
+  const stopDrag = () => {
+    dragRef.current = null;
+    setDragging(false);
   };
 
   return (
