@@ -1,5 +1,5 @@
-import { useState, useEffect, FormEvent } from "react";
-import { Lock, GraduationCap, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, FormEvent, useRef, MouseEvent as ReactMouseEvent, WheelEvent as ReactWheelEvent } from "react";
+import { Lock, GraduationCap, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCcw, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import doc1 from "@/assets/IMG-20260105-WA0021(1).jpg";
