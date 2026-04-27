@@ -318,18 +318,66 @@ export default function AcademicDocsSection() {
 
         {activeIndex !== null && (
           <div
-            className="fixed inset-0 z-50 bg-background/95 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in"
+            className="fixed inset-0 z-50 bg-background/95 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in select-none"
             onClick={() => setActiveIndex(null)}
+            onMouseMove={onMouseMove}
+            onMouseUp={stopDrag}
+            onMouseLeave={stopDrag}
+            onWheel={onWheel}
           >
+            {/* Top toolbar */}
+            <div
+              className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-2 rounded-full bg-card/80 backdrop-blur border border-border shadow-lg z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setZoom((z) => Math.max(1, z - 0.25))}
+                className="p-1.5 rounded-md hover:bg-primary/10 text-foreground/80 hover:text-primary transition-colors"
+                aria-label="Zoom out"
+              >
+                <ZoomOut className="w-4 h-4" />
+              </button>
+              <span className="text-xs font-mono text-muted-foreground w-12 text-center tabular-nums">
+                {Math.round(zoom * 100)}%
+              </span>
+              <button
+                onClick={() => setZoom((z) => Math.min(5, z + 0.25))}
+                className="p-1.5 rounded-md hover:bg-primary/10 text-foreground/80 hover:text-primary transition-colors"
+                aria-label="Zoom in"
+              >
+                <ZoomIn className="w-4 h-4" />
+              </button>
+              <span className="w-px h-4 bg-border" />
+              <button
+                onClick={resetView}
+                className="p-1.5 rounded-md hover:bg-primary/10 text-foreground/80 hover:text-primary transition-colors"
+                aria-label="Reset zoom"
+              >
+                <RotateCcw className="w-4 h-4" />
+              </button>
+              <a
+                href={documents[activeIndex].src}
+                download
+                onClick={(e) => e.stopPropagation()}
+                className="p-1.5 rounded-md hover:bg-primary/10 text-foreground/80 hover:text-primary transition-colors"
+                aria-label="Download"
+              >
+                <Download className="w-4 h-4" />
+              </a>
+            </div>
+
+            {/* Close */}
             <button
-              className="absolute top-6 right-6 p-2 rounded-full bg-card/80 hover:bg-card border border-border"
+              className="absolute top-4 right-4 p-2 rounded-full bg-card/80 hover:bg-card border border-border z-10"
               onClick={() => setActiveIndex(null)}
               aria-label="Close"
             >
               <X className="w-5 h-5" />
             </button>
+
+            {/* Prev */}
             <button
-              className="absolute left-4 md:left-8 p-3 rounded-full bg-card/80 hover:bg-card border border-border"
+              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/80 hover:bg-card border border-border z-10"
               onClick={(e) => {
                 e.stopPropagation();
                 showPrev();
@@ -338,14 +386,34 @@ export default function AcademicDocsSection() {
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <img
-              src={documents[activeIndex].src}
-              alt={documents[activeIndex].title}
+
+            {/* Image stage */}
+            <div
+              className="relative w-full h-full flex items-center justify-center overflow-hidden"
               onClick={(e) => e.stopPropagation()}
-              className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
-            />
+            >
+              <img
+                src={documents[activeIndex].src}
+                alt={documents[activeIndex].title}
+                draggable={false}
+                onMouseDown={onMouseDown}
+                onDoubleClick={() =>
+                  zoom === 1 ? setZoom(2) : resetView()
+                }
+                style={{
+                  transform: `translate3d(${offset.x}px, ${offset.y}px, 0) scale(${zoom})`,
+                  transition: dragging ? "none" : "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
+                  cursor: zoom > 1 ? (dragging ? "grabbing" : "grab") : "zoom-in",
+                  imageRendering: "auto",
+                  willChange: "transform",
+                }}
+                className="max-h-[88vh] max-w-[92vw] object-contain rounded-lg shadow-2xl ring-1 ring-primary/10"
+              />
+            </div>
+
+            {/* Next */}
             <button
-              className="absolute right-4 md:right-8 p-3 rounded-full bg-card/80 hover:bg-card border border-border"
+              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-card/80 hover:bg-card border border-border z-10"
               onClick={(e) => {
                 e.stopPropagation();
                 showNext();
@@ -354,6 +422,20 @@ export default function AcademicDocsSection() {
             >
               <ChevronRight className="w-5 h-5" />
             </button>
+
+            {/* Caption */}
+            <div
+              className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-card/80 backdrop-blur border border-border text-xs text-muted-foreground z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <span className="text-foreground font-medium">
+                {documents[activeIndex].title}
+              </span>
+              <span className="mx-2 text-border">•</span>
+              <span>{documents[activeIndex].grade}</span>
+              <span className="mx-2 text-border">•</span>
+              <span>{documents[activeIndex].date}</span>
+            </div>
           </div>
         )}
       </div>
