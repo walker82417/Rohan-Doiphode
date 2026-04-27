@@ -11,7 +11,7 @@ import doc5 from "@/assets/IMG-20260105-WA0050.jpg";
 // SHA-256 hash of the access password. The plain password is NOT stored
 // anywhere in the source — only this hash is shipped to the browser.
 const PASSWORD_HASH =
-  "861b41246ff331942acac27d3ec8d63c589b879208e3a18c916ec9583a246fd6";
+  "2c9e7c84d9b1012d1db63a564e809bc4b5684a41b6e127924d659853412d9aab";
 
 const documents = [
   {
