@@ -82,7 +82,21 @@ export default {
           "to": { width: "100%" },
         },
         "blink": {
-          "50%": { borderColor: "transparent" },
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+        "spin-slow": {
+          "0%": { transform: "translate(-50%, -50%) rotate(0deg)" },
+          "100%": { transform: "translate(-50%, -50%) rotate(360deg)" },
+        },
+        "scan-y": {
+          "0%": { transform: "translateY(0)", opacity: "0" },
+          "10%, 90%": { opacity: "1" },
+          "100%": { transform: "translateY(100vh)", opacity: "0" },
+        },
+        "float-particle": {
+          "0%, 100%": { transform: "translateY(0) translateX(0)", opacity: "0.2" },
+          "50%": { transform: "translateY(-30px) translateX(10px)", opacity: "0.8" },
         },
       },
       animation: {
@@ -96,7 +110,10 @@ export default {
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
         "typing": "typing 3.5s steps(40, end)",
-        "blink": "blink 0.75s step-end infinite",
+        "blink": "blink 1s ease-in-out infinite",
+        "spin-slow": "spin-slow 18s linear infinite",
+        "scan-y": "scan-y 6s ease-in-out infinite",
+        "float-particle": "float-particle 8s ease-in-out infinite",
       },
     },
   },
