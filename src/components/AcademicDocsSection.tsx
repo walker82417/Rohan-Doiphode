@@ -174,6 +174,15 @@ export default function AcademicDocsSection() {
     resetView();
   }, [activeIndex]);
 
+  const showPrev = () => {
+    if (activeIndex === null) return;
+    setActiveIndex((activeIndex - 1 + documents.length) % documents.length);
+  };
+  const showNext = () => {
+    if (activeIndex === null) return;
+    setActiveIndex((activeIndex + 1) % documents.length);
+  };
+
   // Keyboard navigation
   useEffect(() => {
     if (activeIndex === null) return;
@@ -188,15 +197,6 @@ export default function AcademicDocsSection() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [activeIndex]);
-
-  const showPrev = () => {
-    if (activeIndex === null) return;
-    setActiveIndex((activeIndex - 1 + documents.length) % documents.length);
-  };
-  const showNext = () => {
-    if (activeIndex === null) return;
-    setActiveIndex((activeIndex + 1) % documents.length);
-  };
 
   const onWheel = (e: ReactWheelEvent<HTMLDivElement>) => {
     e.preventDefault();
