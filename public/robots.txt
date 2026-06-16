@@ -13,4 +13,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-Sitemap: https://resume-reimagined-animated.lovable.app/sitemap.xml
+Sitemap: https://rohan-doiphode.vercel.app/sitemap.xml
