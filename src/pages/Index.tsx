@@ -9,6 +9,7 @@ import AchievementsSection from "@/components/AchievementsSection";
 import AcademicDocsSection from "@/components/AcademicDocsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ViewCounter from "@/components/ViewCounter";
 
 export default function Index() {
   return (
@@ -50,6 +51,7 @@ export default function Index() {
         <ContactSection />
       </main>
       <Footer />
+      <ViewCounter />
     </div>
   );
 }
