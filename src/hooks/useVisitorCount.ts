@@ -1,21 +1,44 @@
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "rohan-portfolio-total-views";
+// Global real-time view counter via free CounterAPI (no auth, no DB setup).
+// Each page load increments the global counter once per session.
+const NAMESPACE = "rohan-doiphode-portfolio";
+const KEY = "site-views";
+const SESSION_FLAG = "rd-view-counted";
+const LOCAL_FALLBACK = "rd-view-cache";
 
 export function useVisitorCount() {
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      const current = stored ? parseInt(stored, 10) : 0;
-      const next = Number.isNaN(current) ? 1 : current + 1;
-      localStorage.setItem(STORAGE_KEY, String(next));
-      setCount(next);
-    } catch {
-      // localStorage unavailable (private mode / restricted) — fallback to 0
-      setCount(0);
-    }
+    let cancelled = false;
+
+    const cached = Number(localStorage.getItem(LOCAL_FALLBACK) || 0);
+    if (cached) setCount(cached);
+
+    const alreadyCounted = sessionStorage.getItem(SESSION_FLAG) === "1";
+    const endpoint = alreadyCounted
+      ? `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/`
+      : `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up/`;
+
+    fetch(endpoint)
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled) return;
+        const value = Number(data?.count ?? 0);
+        if (value > 0) {
+          setCount(value);
+          localStorage.setItem(LOCAL_FALLBACK, String(value));
+          if (!alreadyCounted) sessionStorage.setItem(SESSION_FLAG, "1");
+        }
+      })
+      .catch(() => {
+        // keep cached fallback
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return count;
