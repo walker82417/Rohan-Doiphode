@@ -3,6 +3,7 @@ import { Youtube, Linkedin, Mail, Github, Instagram, Eye } from "lucide-react";
 
 
 export default function Footer() {
+  const viewCount = useVisitorCount();
   return (
     <footer className="py-8 border-t border-border/50">
       <div className="container text-center">
