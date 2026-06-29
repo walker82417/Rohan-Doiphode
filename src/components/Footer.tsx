@@ -1,4 +1,6 @@
-import { Youtube, Linkedin, Mail, Github, Instagram } from "lucide-react";
+import { useVisitorCount } from "@/hooks/useVisitorCount";
+import { Youtube, Linkedin, Mail, Github, Instagram, Eye } from "lucide-react";
+
 
 export default function Footer() {
   return (
