@@ -33,6 +33,10 @@ export default function Footer() {
           Designed & Built by <span className="text-primary font-mono">Rohan Doiphode</span>
         </p>
         <p className="text-xs text-muted-foreground/50 mt-1">&copy; {new Date().getFullYear()} All rights reserved.</p>
+        <p className="inline-flex items-center gap-1.5 mt-3 text-xs text-muted-foreground/50">
+          <Eye className="w-3.5 h-3.5" aria-hidden="true" />
+          <span>{viewCount.toLocaleString()} total views</span>
+        </p>
       </div>
     </footer>
   );
