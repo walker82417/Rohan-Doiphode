@@ -45,8 +45,9 @@ export default function Navbar() {
         {/* Profile photo appears on scroll, otherwise show Home text */}
         <button onClick={scrollToTop} className="flex items-center gap-2 group">
           <div className={`transition-all duration-500 ease-in-out overflow-hidden rounded-full border-2 border-primary/30 group-hover:border-primary/60 ${scrolled ? "w-9 h-9 opacity-100" : "w-0 h-0 opacity-0"}`}>
-            <img src={profilePhoto} alt="Rohan" className="w-full h-full object-cover rounded-full" />
+            <img src={profilePhoto} alt="Rohan Doiphode Profile" className="w-full h-full object-cover rounded-full" />
           </div>
+
           <span className={`text-xl font-bold text-primary text-glow transition-all duration-300 ${scrolled ? "text-base" : ""}`}>
             {scrolled ? "" : "PORTFOLIO"}
           </span>
@@ -73,7 +74,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden text-foreground p-2">
+        <button onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} className="md:hidden text-foreground p-2">
           <div className="space-y-1.5">
             <span className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${open ? "rotate-45 translate-y-2" : ""}`} />
             <span className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${open ? "opacity-0" : ""}`} />

@@ -13,4 +13,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-Sitemap: https://rohan-doiphode.vercel.app/sitemap.xml
+Sitemap: https://rohandoiphode.lovable.app/sitemap.xml
