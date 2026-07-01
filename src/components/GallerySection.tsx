@@ -86,19 +86,20 @@ export default function GallerySection() {
       {/* Lightbox */}
       {lightbox !== null && (
         <div className="fixed inset-0 z-50 bg-background/90 backdrop-blur-md flex items-center justify-center p-4" onClick={closeLightbox}>
-          <button onClick={(e) => { e.stopPropagation(); prev(); }} className="absolute left-4 md:left-8 p-2 rounded-full bg-muted/50 text-foreground hover:bg-muted transition-colors">
+          <button onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Previous image" className="absolute left-4 md:left-8 p-2 rounded-full bg-muted/50 text-foreground hover:bg-muted transition-colors">
             <ChevronLeft className="w-6 h-6" />
           </button>
           <div className="max-w-4xl max-h-[80vh] relative" onClick={(e) => e.stopPropagation()}>
             <img src={imageItems[lightbox].src} alt={imageItems[lightbox].alt} className="max-w-full max-h-[75vh] object-contain rounded-lg" />
             <p className="text-center mt-3 text-sm font-mono text-primary">{imageItems[lightbox].caption}</p>
           </div>
-          <button onClick={(e) => { e.stopPropagation(); next(); }} className="absolute right-4 md:right-8 p-2 rounded-full bg-muted/50 text-foreground hover:bg-muted transition-colors">
+          <button onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Next image" className="absolute right-4 md:right-8 p-2 rounded-full bg-muted/50 text-foreground hover:bg-muted transition-colors">
             <ChevronRight className="w-6 h-6" />
           </button>
-          <button onClick={closeLightbox} className="absolute top-4 right-4 p-2 rounded-full bg-muted/50 text-foreground hover:bg-muted transition-colors">
+          <button onClick={closeLightbox} aria-label="Close lightbox" className="absolute top-4 right-4 p-2 rounded-full bg-muted/50 text-foreground hover:bg-muted transition-colors">
             <X className="w-5 h-5" />
           </button>
+
         </div>
       )}
     </section>
