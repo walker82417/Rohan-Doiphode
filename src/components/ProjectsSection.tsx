@@ -70,11 +70,6 @@ export default function ProjectsSection() {
                 <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
                   <p.icon className="w-6 h-6" />
                 </div>
-                {p.ongoing && (
-                  <span className="text-xs px-2 py-1 rounded-full bg-accent/10 text-accent border border-accent/30 animate-pulse-glow">
-                    Ongoing
-                  </span>
-                )}
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                 {p.title}
