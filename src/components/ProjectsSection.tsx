@@ -27,11 +27,10 @@ const projects = [
     tags: ["IoT", "AI", "Aquaculture"],
   },
   {
-    title: "AI Chatbot for Industrial Machines",
-    desc: "Real-time monitoring and predictive support chatbot for industrial machines using AI-driven analytics. Currently in development.",
+    title: "AI Driven Chatbot for Real-Time Monitoring and Predictive Support for Industrial Machines",
+    desc: "Completed an AI-powered chatbot for industrial machines that provides real-time monitoring, predictive maintenance alerts, and intelligent support to reduce downtime.",
     icon: Bot,
-    tags: ["AI", "Industry 4.0", "Chatbot"],
-    ongoing: true,
+    tags: ["AI", "Industry 4.0", "Chatbot", "Predictive Maintenance"],
   },
   {
     title: "PLC Based Automatic Car Washing System",
@@ -71,11 +70,6 @@ export default function ProjectsSection() {
                 <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
                   <p.icon className="w-6 h-6" />
                 </div>
-                {p.ongoing && (
-                  <span className="text-xs px-2 py-1 rounded-full bg-accent/10 text-accent border border-accent/30 animate-pulse-glow">
-                    Ongoing
-                  </span>
-                )}
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                 {p.title}
