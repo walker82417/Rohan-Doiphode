@@ -5,6 +5,11 @@ import aqua1 from "@/assets/aqua1.jpg";
 import aqua2 from "@/assets/aqua2.jpg";
 import aqua3 from "@/assets/aqua3.jpg";
 import aquaculture from "@/assets/aquaculture.jpg";
+import teamPhoto1 from "@/assets/IMG20260609132358.jpg.asset.json";
+import teamPhoto2 from "@/assets/IMG20260609132423.jpg.asset.json";
+import guidePhoto from "@/assets/IMG20260609132955.jpg.asset.json";
+import reportPhoto from "@/assets/IMG-20260610-WA0006.jpg.asset.json";
+import batchPhoto from "@/assets/PIX10129.JPG.asset.json";
 
 type GalleryItem =
   | { type: "image"; src: string; alt: string; caption: string }
@@ -15,11 +20,13 @@ const galleryImages: GalleryItem[] = [
   { type: "image", src: aqua1, alt: "Aquaculture Hardware Setup", caption: "IoT Hardware Setup" },
   { type: "image", src: aqua2, alt: "Project Discussion", caption: "Project Discussion" },
   { type: "image", src: aqua3, alt: "Aquaculture Project", caption: "Aquaculture Project" },
-  { type: "soon", caption: "Coming Soon...." },
-  { type: "soon", caption: "Coming Soon...." },
-  { type: "soon", caption: "Coming Soon...." },
-  { type: "soon", caption: "Coming Soon...." },
+  { type: "image", src: teamPhoto1.url, alt: "Final year project team with project guide holding project reports", caption: "Final Year Project Team" },
+  { type: "image", src: teamPhoto2.url, alt: "Project team celebrating final year project submission", caption: "Project Submission Day" },
+  { type: "image", src: guidePhoto.url, alt: "Rohan Doiphode with his project guide", caption: "With My Project Guide" },
+  { type: "image", src: reportPhoto.url, alt: "AI-Driven Chat-bot for Real-Time Monitoring and Predictive Support of Industrial Machines project report", caption: "AI Chatbot — Project Report" },
+  { type: "image", src: batchPhoto.url, alt: "Electrical Engineering batch 2025-26 group photograph", caption: "Electrical Engineering Batch 2025-26" },
 ];
+
 
 export default function GallerySection() {
   const [lightbox, setLightbox] = useState<number | null>(null);
