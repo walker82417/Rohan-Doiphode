@@ -22,11 +22,11 @@ const cards: DetailCard[] = [
   {
     icon: GraduationCap,
     title: "B.E. Electrical Engineering",
-    desc: "CGPA: 7.5/10 | 2022 to 2026 (Final Year)",
-    sub: "KIT's College of Engineering (Autonomous), Kolhapur",
+    desc: "CGPA: 7.9/10 | Graduated Batch 2025-26",
+    sub: "KIT College of Engineering (Empowered Autonomous), Kolhapur",
     expandable: true,
     details: {
-      institution: "KIT's College of Engineering (Autonomous), Kolhapur",
+      institution: "KIT College of Engineering (Empowered Autonomous), Kolhapur",
       city: "Kolhapur, Maharashtra, India",
       mapUrl: "https://maps.google.com/?q=KIT's+College+of+Engineering+Kolhapur",
       website: "https://www.kitcoek.in",
@@ -34,8 +34,9 @@ const cards: DetailCard[] = [
       extras: [
         "Degree: Bachelor of Engineering (B.E.)",
         "Branch: Electrical Engineering",
-        "Duration: 2022 to 2026 (Final Year)",
-        "CGPA: 7.5 / 10",
+        "Duration: 2022 to 2026",
+        "Graduated: Batch 2025-26",
+        "CGPA: 7.9 / 10",
         "University: Shivaji University, Kolhapur",
       ],
     },
@@ -125,7 +126,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
           <div className={`transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              I'm a Final Year <span className="text-foreground font-medium">Electrical Engineering</span> student at KIT's College of Engineering, Kolhapur, with a passion for blending traditional power systems with cutting-edge IoT and AI technologies.
+              I'm a <span className="text-foreground font-medium">B.E. Electrical Engineering graduate</span> from KIT College of Engineering, Kolhapur (Batch 2025-26), with a passion for blending traditional power systems with cutting-edge IoT and AI technologies.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
               My goal is to drive <span className="text-primary">sustainable energy solutions</span> and operational excellence through innovative engineering. From wireless EV charging to AI-driven industrial monitoring, I love tackling complex problems.

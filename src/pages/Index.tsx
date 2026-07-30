@@ -18,8 +18,8 @@ export default function Index() {
         Rohan Doiphode — Electrical Engineer, IoT & AI Developer Portfolio
       </h1>
       <p className="sr-only">
-        Welcome to the official portfolio of Rohan Doiphode, an Electrical
-        Engineering student and developer specializing in Internet of Things
+        Welcome to the official portfolio of Rohan Doiphode, a B.E. Electrical
+        Engineering graduate and developer specializing in Internet of Things
         (IoT), Artificial Intelligence (AI), embedded systems, robotics, power
         electronics, renewable energy and automation. Explore projects built
         with Arduino, ESP32, Raspberry Pi, Python, C++ and MATLAB, alongside

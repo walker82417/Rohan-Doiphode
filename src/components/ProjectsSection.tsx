@@ -27,11 +27,10 @@ const projects = [
     tags: ["IoT", "AI", "Aquaculture"],
   },
   {
-    title: "AI Chatbot for Industrial Machines",
-    desc: "Real-time monitoring and predictive support chatbot for industrial machines using AI-driven analytics. Currently in development.",
+    title: "AI Driven Chatbot for Real-Time Monitoring and Predictive Support for Industrial Machines",
+    desc: "Completed an AI-powered chatbot for industrial machines that provides real-time monitoring, predictive maintenance alerts, and intelligent support to reduce downtime.",
     icon: Bot,
-    tags: ["AI", "Industry 4.0", "Chatbot"],
-    ongoing: true,
+    tags: ["AI", "Industry 4.0", "Chatbot", "Predictive Maintenance"],
   },
   {
     title: "PLC Based Automatic Car Washing System",
