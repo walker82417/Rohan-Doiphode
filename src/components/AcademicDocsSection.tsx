@@ -307,16 +307,28 @@ export default function AcademicDocsSection() {
             {documents.map((doc, i) => (
               <button
                 key={i}
-                onClick={() => setActiveIndex(i)}
-                className="group relative overflow-hidden rounded-xl border border-primary/20 bg-card hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)] text-left flex flex-col"
+                onClick={() => !doc.pending && setActiveIndex(i)}
+                disabled={doc.pending}
+                className={`group relative overflow-hidden rounded-xl border bg-card transition-all duration-500 text-left flex flex-col ${
+                  doc.pending
+                    ? "border-dashed border-primary/25 cursor-default"
+                    : "border-primary/20 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)]"
+                }`}
               >
                 <div className="aspect-[3/4] overflow-hidden">
-                  <img
-                    src={doc.src}
-                    alt={doc.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  {doc.pending ? (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-muted/20 text-center px-4">
+                      <GraduationCap className="w-10 h-10 text-primary/50" />
+                      <p className="text-xs text-muted-foreground/80">{doc.note}</p>
+                    </div>
+                  ) : (
+                    <img
+                      src={doc.src}
+                      alt={doc.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
                 </div>
                 <div className="p-4 border-t border-border/50 space-y-1.5">
                   <h3 className="text-sm font-semibold text-foreground line-clamp-1">
