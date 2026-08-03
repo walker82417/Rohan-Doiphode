@@ -59,6 +59,14 @@ const documents: AcademicDoc[] = [
     grade: "CGPA: 7.5",
     date: "2024–25",
   },
+  {
+    title: "B.Tech Graduation — Final Year",
+    board: "KIT College of Engineering (Empowered Autonomous), Kolhapur · Shivaji University",
+    grade: "CGPA: 7.9 / 10",
+    date: "Batch 2025–26",
+    pending: true,
+    note: "Certificate not officially issued yet",
+  },
 ];
 
 async function sha256(text: string): Promise<string> {
