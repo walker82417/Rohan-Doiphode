@@ -13,7 +13,17 @@ import doc5 from "@/assets/IMG-20260105-WA0050.jpg";
 const PASSWORD_HASH =
   "2c9e7c84d9b1012d1db63a564e809bc4b5684a41b6e127924d659853412d9aab";
 
-const documents = [
+interface AcademicDoc {
+  src?: string;
+  title: string;
+  board: string;
+  grade: string;
+  date: string;
+  pending?: boolean;
+  note?: string;
+}
+
+const documents: AcademicDoc[] = [
   {
     src: doc2,
     title: "SSC Certificate",
