@@ -13,7 +13,17 @@ import doc5 from "@/assets/IMG-20260105-WA0050.jpg";
 const PASSWORD_HASH =
   "2c9e7c84d9b1012d1db63a564e809bc4b5684a41b6e127924d659853412d9aab";
 
-const documents = [
+interface AcademicDoc {
+  src?: string;
+  title: string;
+  board: string;
+  grade: string;
+  date: string;
+  pending?: boolean;
+  note?: string;
+}
+
+const documents: AcademicDoc[] = [
   {
     src: doc2,
     title: "SSC Certificate",
@@ -48,6 +58,14 @@ const documents = [
     board: "KIT's College of Engineering, Kolhapur",
     grade: "CGPA: 7.5",
     date: "2024–25",
+  },
+  {
+    title: "B.Tech Graduation — Final Year",
+    board: "KIT College of Engineering (Empowered Autonomous), Kolhapur · Shivaji University",
+    grade: "CGPA: 7.9 / 10",
+    date: "Batch 2025–26",
+    pending: true,
+    note: "Certificate not officially issued yet",
   },
 ];
 
@@ -174,14 +192,17 @@ export default function AcademicDocsSection() {
     resetView();
   }, [activeIndex]);
 
-  const showPrev = () => {
+  const step = (dir: number) => {
     if (activeIndex === null) return;
-    setActiveIndex((activeIndex - 1 + documents.length) % documents.length);
+    let idx = activeIndex;
+    for (let n = 0; n < documents.length; n++) {
+      idx = (idx + dir + documents.length) % documents.length;
+      if (!documents[idx].pending) break;
+    }
+    setActiveIndex(idx);
   };
-  const showNext = () => {
-    if (activeIndex === null) return;
-    setActiveIndex((activeIndex + 1) % documents.length);
-  };
+  const showPrev = () => step(-1);
+  const showNext = () => step(1);
 
   // Keyboard navigation
   useEffect(() => {
@@ -289,16 +310,28 @@ export default function AcademicDocsSection() {
             {documents.map((doc, i) => (
               <button
                 key={i}
-                onClick={() => setActiveIndex(i)}
-                className="group relative overflow-hidden rounded-xl border border-primary/20 bg-card hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)] text-left flex flex-col"
+                onClick={() => !doc.pending && setActiveIndex(i)}
+                disabled={doc.pending}
+                className={`group relative overflow-hidden rounded-xl border bg-card transition-all duration-500 text-left flex flex-col ${
+                  doc.pending
+                    ? "border-dashed border-primary/25 cursor-default"
+                    : "border-primary/20 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)]"
+                }`}
               >
                 <div className="aspect-[3/4] overflow-hidden">
-                  <img
-                    src={doc.src}
-                    alt={doc.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  {doc.pending ? (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-muted/20 text-center px-4">
+                      <GraduationCap className="w-10 h-10 text-primary/50" />
+                      <p className="text-xs text-muted-foreground/80">{doc.note}</p>
+                    </div>
+                  ) : (
+                    <img
+                      src={doc.src}
+                      alt={doc.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
                 </div>
                 <div className="p-4 border-t border-border/50 space-y-1.5">
                   <h3 className="text-sm font-semibold text-foreground line-clamp-1">
