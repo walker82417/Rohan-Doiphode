@@ -192,14 +192,17 @@ export default function AcademicDocsSection() {
     resetView();
   }, [activeIndex]);
 
-  const showPrev = () => {
+  const step = (dir: number) => {
     if (activeIndex === null) return;
-    setActiveIndex((activeIndex - 1 + documents.length) % documents.length);
+    let idx = activeIndex;
+    for (let n = 0; n < documents.length; n++) {
+      idx = (idx + dir + documents.length) % documents.length;
+      if (!documents[idx].pending) break;
+    }
+    setActiveIndex(idx);
   };
-  const showNext = () => {
-    if (activeIndex === null) return;
-    setActiveIndex((activeIndex + 1) % documents.length);
-  };
+  const showPrev = () => step(-1);
+  const showNext = () => step(1);
 
   // Keyboard navigation
   useEffect(() => {
