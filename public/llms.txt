@@ -1,6 +1,6 @@
 # Rohan Doiphode — Portfolio
 
-> Official portfolio of Rohan Doiphode, an Electrical Engineering student and developer building IoT, AI, embedded systems, robotics, and power-electronics projects. Also a YouTuber at @walkersmusicworld with 43K+ subscribers.
+> Official portfolio of Rohan Doiphode, a B.Tech Electrical Engineering graduate and developer building IoT, AI, embedded systems, robotics, and power-electronics projects. Also a YouTuber at @walkersmusicworld with 43K+ subscribers.
 
 Rohan Doiphode is based in India and is a B.Tech Electrical Engineering graduate (Batch 2025-26, CGPA 7.9/10) from KIT College of Engineering (Empowered Autonomous), Kolhapur — Shivaji University. The site showcases his projects, skills, academic record, YouTube work, achievements, and contact details.
 
